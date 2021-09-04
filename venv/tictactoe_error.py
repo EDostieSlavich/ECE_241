@@ -2,7 +2,7 @@
 choices = []
 for x in range (1, 10) :
     choices.append(x)
-print(choices)
+#print(choices)
 playerOneTurn = True
 winner = False
 
@@ -55,5 +55,13 @@ while winner == False :
        (choices[2] == choices[4] and choices[4] == choices[6])) :
         winner = True
         printBoard()
-
-print ("Player " + str(int(playerOneTurn + 1)) + " wins!\n")
+    count = 0
+    for k in range(0,9):
+        if choices[k] == 'X' or choices[k] == 'O':
+            count = count + 1
+    if count == 9 and winner == False:
+        printBoard()
+        print("Stalemate! No Winner!")
+        break
+if winner == True:
+    print ("Player " + str(int(playerOneTurn + 1)) + " wins!\n")
